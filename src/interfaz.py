@@ -88,9 +88,9 @@ class CalculadoraGUI:
             for entry in self.a_entries_2:
                 entry.config(state="disabled")
         elif operacion in ["Producto matriz-vector"]:
-            self.x1_entry.config(state="disabled")
-            self.y1_entry.config(state="disabled")
-            self.z1_entry.config(state="disabled")
+            self.x1_entry.config(state="normal")
+            self.y1_entry.config(state="normal")
+            self.z1_entry.config(state="normal")
             self.x2_entry.config(state="disabled")
             self.y2_entry.config(state="disabled")
             self.z2_entry.config(state="disabled")
@@ -151,12 +151,16 @@ class CalculadoraGUI:
             graficar_vector(vector2)
             graficar_vector(resultado)
         elif operacion == "Producto matriz-vector":
-            matriz = leer_matriz(*[entry.get() for entry in self.a_entries_1])
-            vector = leer_vector(self.x1_entry.get(), self.y1_entry.get(), self.z1_entry.get())
-            resultado = producto_matriz_vector(matriz, vector)
-            self.mostrar_resultado(resultado)
-            graficar_matriz(matriz)
-            graficar_vector(vector)
+            self.x1_entry.config(state="normal")
+            self.y1_entry.config(state="normal")
+            self.z1_entry.config(state="normal")
+            self.x2_entry.config(state="disabled")
+            self.y2_entry.config(state="disabled")
+            self.z2_entry.config(state="disabled")
+            for entry in self.a_entries_1:
+                entry.config(state="normal")
+            for entry in self.a_entries_2:
+                entry.config(state="disabled")
         elif operacion == "Producto matrices":
             matriz1 = leer_matriz(*[entry.get() for entry in self.a_entries_1])
             matriz2 = leer_matriz(*[entry.get() for entry in self.a_entries_2])

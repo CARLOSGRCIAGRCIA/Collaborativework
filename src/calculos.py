@@ -21,7 +21,7 @@ def magnitud(vector):
     return np.linalg.norm(vector)
 
 def proyeccion(vector1, vector2):
-    return np.dot(vector1, vector2) / np.linalg.norm(vector2) ** 2 * vector2
+    return (np.dot(vector1, vector2) / np.linalg.norm(vector2) ** 2) * vector2
 
 def producto_matriz_vector(matriz, vector):
     return np.dot(matriz, vector)
